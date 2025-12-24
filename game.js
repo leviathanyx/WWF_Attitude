@@ -2,22 +2,46 @@
 // WWF Trump Cards - Game Logic
 // ================================
 
+// Decks
 let playerDeck = [];
 let cpuDeck = [];
 
-let tablePile = []; // cards currently on the table (incl. tie rounds)
+// Cards in play (incl. tie wars)
+let tablePile = [];
 
-let currentPlayer = "player"; // winner of last round starts
+// Turn control
+let currentPlayer = "player";
 let playerCard = null;
 let cpuCard = null;
+let lastChosenStat = null;
 
 // -------------------------------
-// INIT
+// UTILS
 // -------------------------------
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
+function formatStat(key, value) {
+  if (key === "weight") return `${value} kg`;
+
+  if (key === "height") {
+    const totalInches = Math.round(value / 2.54);
+    const feet = Math.floor(totalInches / 12);
+    const inches = totalInches % 12;
+    return `${feet}'${inches}"`;
+  }
+
+  if (key === "biceps" || key === "chest") return `${value} in`;
+
+  if (key === "ranking") return `#${value}`;
+
+  return value;
+}
+
+// -------------------------------
+// INIT
+// -------------------------------
 function initGame() {
   const shuffled = shuffle([...deck]);
   const half = Math.floor(shuffled.length / 2);
@@ -25,15 +49,15 @@ function initGame() {
   playerDeck = shuffled.slice(0, half);
   cpuDeck = shuffled.slice(half);
 
-  document.getElementById("status").textContent = "Game started. Your turn.";
+  document.getElementById("status").textContent =
+    "Game started. Your turn.";
   updateDeckCount();
   drawCards();
 }
 
 function updateDeckCount() {
-  document.getElementById(
-    "deck-count"
-  ).textContent = `You: ${playerDeck.length} | CPU: ${cpuDeck.length}`;
+  document.getElementById("deck-count").textContent =
+    `You: ${playerDeck.length} | CPU: ${cpuDeck.length}`;
 }
 
 // -------------------------------
@@ -49,6 +73,7 @@ function drawCards() {
   cpuCard = cpuDeck.shift();
 
   tablePile.push(playerCard, cpuCard);
+  lastChosenStat = null;
 
   renderPlayerCard();
   renderCpuCard(false);
@@ -57,7 +82,7 @@ function drawCards() {
     cpuPickStat();
   } else {
     document.getElementById("status").textContent =
-      "Pick a stat to play.";
+      "Pick a stat.";
   }
 }
 
@@ -75,38 +100,61 @@ function renderPlayerCard() {
     if (key === "name" || key === "image") return;
 
     const li = document.createElement("li");
-    li.innerHTML = `<span>${key.toUpperCase()}</span><span>${playerCard[key]}</span>`;
-    li.onclick = () => resolveRound(key);
+    li.innerHTML = `<span>${key.toUpperCase()}</span>
+                    <span>${formatStat(key, playerCard[key])}</span>`;
+
+    li.onclick = () => {
+      if (currentPlayer !== "player") return;
+      resolveRound(key);
+    };
+
     ul.appendChild(li);
   });
 }
 
 function renderCpuCard(showStats) {
-  document.getElementById("cpu-name").textContent = cpuCard.name;
-  document.getElementById("cpu-image").src = cpuCard.image;
-
+  const nameEl = document.getElementById("cpu-name");
+  const imgEl = document.getElementById("cpu-image");
   const ul = document.getElementById("cpu-stats");
+
   ul.innerHTML = "";
 
-  if (!showStats) return;
+  if (!showStats) {
+    nameEl.textContent = "CPU Card";
+    imgEl.src =
+      "https://upload.wikimedia.org/wikipedia/commons/5/54/Card_back_01.svg";
+    return;
+  }
+
+  nameEl.textContent = cpuCard.name;
+  imgEl.src = cpuCard.image;
 
   Object.keys(cpuCard).forEach((key) => {
     if (key === "name" || key === "image") return;
 
     const li = document.createElement("li");
-    li.innerHTML = `<span>${key.toUpperCase()}</span><span>${cpuCard[key]}</span>`;
+    li.innerHTML = `<span>${key.toUpperCase()}</span>
+                    <span>${formatStat(key, cpuCard[key])}</span>`;
+
+    if (key === lastChosenStat) {
+      li.classList.add("cpu-selected");
+    }
+
     ul.appendChild(li);
   });
 }
 
 // -------------------------------
-// ROUND RESOLUTION
+// ROUND LOGIC
 // -------------------------------
 function resolveRound(stat) {
+  lastChosenStat = stat;
+
+  highlightPlayerStat(stat);
+  renderCpuCard(true);
+
   const playerValue = playerCard[stat];
   const cpuValue = cpuCard[stat];
-
-  renderCpuCard(true);
 
   if (playerValue > cpuValue) {
     roundWin("player");
@@ -118,9 +166,8 @@ function resolveRound(stat) {
 }
 
 function tieRound(stat) {
-  document.getElementById(
-    "status"
-  ).textContent = `Tie on ${stat.toUpperCase()}! New card, same player chooses.`;
+  document.getElementById("status").textContent =
+    `Tie on ${stat.toUpperCase()}! New card — same chooser.`;
 
   setTimeout(drawCards, 2000);
 }
@@ -148,7 +195,6 @@ function roundWin(winner) {
 // CPU LOGIC
 // -------------------------------
 function cpuPickStat() {
-  // CPU picks its strongest stat
   let bestStat = null;
   let bestValue = -Infinity;
 
@@ -161,11 +207,23 @@ function cpuPickStat() {
     }
   });
 
-  document.getElementById(
-    "status"
-  ).textContent = `CPU chooses ${bestStat.toUpperCase()}.`;
+  lastChosenStat = bestStat;
+
+  document.getElementById("status").textContent =
+    `CPU chooses ${bestStat.toUpperCase()}.`;
 
   setTimeout(() => resolveRound(bestStat), 1200);
+}
+
+// -------------------------------
+// UI HELPERS
+// -------------------------------
+function highlightPlayerStat(stat) {
+  document.querySelectorAll("#player-stats li").forEach((li) => {
+    if (li.textContent.includes(stat.toUpperCase())) {
+      li.classList.add("selected");
+    }
+  });
 }
 
 // -------------------------------
