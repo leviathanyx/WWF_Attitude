@@ -1,0 +1,27 @@
+// Image map for wrestlers
+const imageMap = {
+  "Stone Cold Steve Austin": "https://...",
+  "The Rock": "https://...",
+  "The Undertaker": "https://...",
+  "Triple H": "https://...",
+  "Kane": "https://...",
+  "Mick Foley": "https://...",
+  "Shawn Michaels": "https://...",
+  "Kurt Angle": "https://...",
+  "Chris Jericho": "https://...",
+  "Eddie Guerrero": "https://...",
+  "Edge": "https://...",
+  "Christian": "https://...",
+  "Jeff Hardy": "https://...",
+  "Matt Hardy": "https://...",
+  "Big Show": "https://...",
+  "Rikishi": "https://...",
+  "Brock Lesnar": "https://...",
+  "John Cena": "https://...",
+  "Batista": "https://...",
+  "Randy Orton": "https://...",
+  "Chyna": "https://...",
+  "Trish Stratus": "https://...",
+  "Lita": "https://...",
+  "Stacy Keibler": "https://..."
+};
