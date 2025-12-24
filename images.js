@@ -1,12 +1,12 @@
 // Image map for wrestlers
 const imageMap = {
-  "Stone Cold Steve Austin": "https://www.wwe.com/f/styles/wwe_large/public/rd-talent/Bio/Steve_Austin_bio.jpg",
-  "The Rock": "https://pbs.twimg.com/media/GBcekaPXYAAPzs2.jpg",
-  "The Undertaker": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xVvBaSILeRf9hG7KXCVH18g1lByYjNx5pQ&s",
-  "Triple H": "https://generationiron.com/wp-content/uploads/2022/03/Triple-H-11th-World-Title-Reign-Cropped.jpg",
+  "Stone Cold Steve Austin": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Austin_with_WWF_title.jpg",
+  "The Rock": "https://upload.wikimedia.org/wikipedia/commons/e/e2/The_ROCK_b.jpg",
+  "The Undertaker": "https://upload.wikimedia.org/wikipedia/commons/1/12/Undertaker_standing_1997.jpg",
+  "Triple H": "https://upload.wikimedia.org/wikipedia/commons/6/65/Triple_H_WWE_Champion_2008.jpg",
   "Kane": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9Q3rfaV6N7hBZS7Ff67Q_ryWJ9CdJdeoTuv0p_KA7wA&s",
   "Mick Foley": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV8PdbEaaYIGGqEanAs43jFkOVhaGwOTvi7A&s",
-  "Shawn Michaels": "https://i.pinimg.com/474x/b7/07/d7/b707d7b55906fddebb4c50863f704d56.jpg",
+  "Shawn Michaels": "https://upload.wikimedia.org/wikipedia/commons/6/6b/WWE_-_Birmingham_210695_%2819%29.jpg",
   "Kurt Angle": "https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2022/07/1200/675/Kurt-Angle.jpg?ve=1&tl=1",
   "Chris Jericho": "https://www.soundspheremag.com/wp-content/migration/images/stories/05-action-andretti-vs-chris-jericho-2022-12-14-aew-dynamite-0001-jpg-1673293568.jpg",
   "Eddie Guerrero": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXpTqwKYddpTyFdmJVFmlJmwUfwHFtxmrr_Q&s",
@@ -16,12 +16,12 @@ const imageMap = {
   "Matt Hardy": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/TNA_Champion_Matt_Hardy.jpg/250px-TNA_Champion_Matt_Hardy.jpg",
   "Big Show": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhGeFsDtLB0tYVWVRjtk7kyKYCWZ0F4e53w&s",
   "Rikishi": "https://www.wwe.com/f/styles/og_image/public/rd-talent/Bio/Rikishi_bio.jpg",
-  "Brock Lesnar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQwkrbX_ezB-0HcStUGoVLCr-MfcDBjqZ5uw&s",
-  "John Cena": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9iWAp1yc_h7XenT4phBfLbaf5aNPdulxx0A&s",
-  "Batista": "https://legacymedia.sportsplatform.io/images_root/slides/photos/000/958/403/batista_display_image.jpg?1306571733",
-  "Randy Orton": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-yZmhXxCEBq9Wp7YzZ2BWmF3pQhtGhSpgpQ&s",
+  "Brock Lesnar": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Brock_Lesnar_Universal_Champion.jpg",
+  "John Cena": "https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Cena_2010.jpeg",
+  "Batista": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Batistalive.jpg",
+  "Randy Orton": "https://upload.wikimedia.org/wikipedia/commons/4/47/Orton_Royal_Rumble_2009.jpg",
   "Chyna": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVtT3hXh4vGVOqxDbElGz_PfWhbRzV6nYOg&s",
-  "Trish Stratus": "https://static.toiimg.com/thumb/msid-115257963,width-1280,height-720,resizemode-4/115257963.jpg",
+  "Trish Stratus": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Trish_Stratus%2C_circa_2004.jpg",
   "Lita": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMXJk7imNgaSCYyZpJiC90pte8AV7UionXTA&s",
-  "Stacy Keibler": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQubDW56A632qplj5R8vBZPrxsyW90pLKFtKw&s"
+  "Stacy Keibler": "https://upload.wikimedia.org/wikipedia/commons/3/31/Stacy_Keibler_at_Slim-Fast_Fashion_Show_12.jpg"
 };
