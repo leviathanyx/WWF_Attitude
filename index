@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WWF Attitude Era – Trump Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>WWF Attitude Era – Trump Cards</h1>
+
+  <div id="game">
+    <!-- PLAYER CARD -->
+    <div class="card">
+      <h2 id="player-name">Your Card</h2>
+      <img id="player-image" src="" alt="Player Image" />
+
+      <ul id="player-stats">
+        <!-- Stats injected by JS -->
+      </ul>
+    </div>
+
+    <!-- CENTER STATUS -->
+    <div class="controls">
+      <p id="status">Loading deck...</p>
+      <p id="deck-count"></p>
+    </div>
+
+    <!-- CPU CARD -->
+    <div class="card">
+      <h2 id="cpu-name">CPU Card</h2>
+      <img id="cpu-image" src="" alt="CPU Image" />
+
+      <ul id="cpu-stats">
+        <!-- Revealed after stat pick -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="cards.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
